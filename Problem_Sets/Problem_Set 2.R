@@ -1,7 +1,7 @@
 population <- rnorm(1e6,100,5)
 popmean <- round(mean(population),1)
 popmean
-popsd <- round(sd(pupolation),1)
+popsd <- round(sd(population),1)
 popsd
 spmeanv <- vector()
 spsdv <- vector()
@@ -13,8 +13,8 @@ for (i in 1:1000){
   spsd <- round(sd(sp),1)
   spsdv <- c(spsdv, spsd)
 }
-hist(spmeanv)
-hist(spsdv)
+hist(spmeanv, col="orange", xlab= "mean of sample")
+hist(spsdv, col="coral", xlab="sd of sample")
 round(mean(spmeanv),1)
 round(mean(spsdv),1)
 
@@ -27,10 +27,10 @@ round(mean(spsdv),1)
 # Improvement: Wider range of sampled children; Include all food they ate before certain meal
 
 # Unrelated question randomised reponse;
-if (sample(c(0,1),1) == 1){
+if (sample(c(0,1),1,replace = TRUE) == 1){
   # Head: answer "Were you born between 1 Jaunary and 30 June?"
   # Equal possibility to say yes or no because people are honest.
-  if (sample(c(0,1),1)==1){
+  if (sample(c(0,1),1)==1, replece = TRUE){
     answer <- "yes"
   } else {
     answer <- "no"
