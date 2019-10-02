@@ -10,11 +10,13 @@ for (j in 1:roll_time){
   }
   tr <- c(tr,sum(result))
 }
-hist(tr,col = "green", ylab = "Outcome", main = paste((dice_number),"dice"))
+hist(tr,col = "green", ylab = "Outcome", main = paste((dice_number),"dice"),freq=F)
+lines(density(tr))
 # 68 - 95 - 99.7 rule:
 sum(mean(tr)-sd(tr) < tr & tr < mean(tr)+sd(tr))/roll_time * 100 # 68
 sum(mean(tr)-2*sd(tr) < tr & tr < mean(tr)+2*sd(tr))/roll_time * 100 # 95
 sum(mean(tr)-3*sd(tr) < tr & tr < mean(tr)+3*sd(tr))/roll_time * 100 # 99.7
+
 # 正态性检验 - nortest 包
 library(nortest)
 ad.test(tr)
