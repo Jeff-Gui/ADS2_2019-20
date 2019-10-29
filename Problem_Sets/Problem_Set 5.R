@@ -102,8 +102,8 @@ ggplot(pdata.olpcd, aes(x=carat,y=price)) +
   geom_text(aes(label = price),hjust = 0.1, nudge_x = 0.05 ,size=1) + # point上数据，调整位置
   scale_y_continuous(trans="log2") + # 调整y轴坐标
   labs(title="Price VS Carat in diamonds") +
-  geom_smooth(method = "lm") + #线性回归
-  facet_grid(.~clarity) #分组
+  # geom_smooth(method = "lm") + #线性回归
+  facet_grid(color~clarity) #分组
 
 
 #===========Simple Data types=================================
