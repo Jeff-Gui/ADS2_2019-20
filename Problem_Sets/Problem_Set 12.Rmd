@@ -1,0 +1,48 @@
+---
+title: "Monthly mouse report"
+author: "Jeff"
+date: "12/6/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This is the monthly report of mice in Prof. Xu's lab. Mice are categorized according to their genotypes. Their weight and age indicate the general health state.
+
+# Summary of mouse age and weight record.
+```{r}
+data = read.csv('/Users/jefft/Library/Mobile Documents/com~apple~CloudDocs/ADS/Practical/mouse_report.csv')
+summary(data[,c('age','weight')])
+```
+
+# Mouse age and weight grouped by genotype.
+
+```{r}
+boxplot(data$age~data$genotype, xlab = 'mouse genotype', ylab = 'mouse age (days)', data = data, col = 'light blue', main = 'mouse age')
+```
+
+
+```{r}
+boxplot(data$weight~data$genotype, xlab = 'mouse genotype', ylab = 'mouse weight (grams)', data = data, col = 'light green', main = 'mouse weight')
+```
+
+# Fun with maths
+\`\`\`something to escape\`\`\`
+
+\(\text{\LaTeX}\)
+
+\(\frac{1}{3}\)
+
+\(A = \frac{d^2 \pi}{4}\)
+
+\(E = mc^2\)
+
+\(K_d = \frac{K_b}{K_f}\)
+
+\(v = \frac{v_{max}[S]}{K_m+[S]}\)
+
+\(\sigma = \sqrt{var}\)
+
+\(\mu = \frac{1}{n}\sum_{k=1}^{n}x_k\)
